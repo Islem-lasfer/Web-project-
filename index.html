@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body,html{
+            overflow: hidden;
+            background: black;
+        }
+        .pattern{
+            position: relative;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+        .face{
+            position: relative;
+             width: 100%;
+            height: 90vh;
+           background: radial-gradient(#00000000, #0000003f), repeating-conic-gradient(from 0deg, rgb(17, 24, 34) 0deg 90deg, #0000009f 90deg 180deg);
+           height: 100vh;
+           background-size: 100px 100px;
+        }
+        .face2{
+            height: 90vh;
+            transform-origin: top;
+            transform: rotateX(70deg);
+        }
+            .face1{
+                bottom: top;
+                width: 100%;
+                height: 60vh;
+            }
+            .face1::before{
+             content: "";
+             position: absolute;
+              bottom: top;
+              left:0;
+              background:linear-gradient(rgba(255, 255, 255, 0.059),transparent);
+               width: 100%;
+              height: 125vh;
+            }
+           
+            .cube {
+                position: absolute;
+                top:40%;
+                left: 45%;
+                 transform-style: preserve-3d;
+                  transform: rotateY(-20deg) rotateX(-20deg);
+                 width: 100px;
+                height: 100px;
+               animation: rotate ease 10s infinite;
+                            }
+                 @keyframes rotate {
+                  0% { transform: rotateY(-20deg) rotateX(20deg);top:40%}
+                  50% { transform: rotateY(-380deg) rotateX(-20deg) ; top:40% } 
+                  100% { transform: rotateY(-20deg) rotateX(20deg) ; top:40% } 
+                 }
+
+
+                .faceCube {
+                    position: absolute;
+                    width: 100px;
+                    background: rgba(255, 255, 255, 0.212);
+                    height: 100px;
+                    border: 2px solid white;
+                   /* box-shadow: 5px 5px 5px 5px  rgba(255, 255, 255, 0.456);*/
+                    box-sizing: border-box;
+                }
+                .face-avant {
+                    transform: translateZ(50px);
+                }
+                .face-arriere {
+                    transform: rotateY(180deg) translateZ(50px);
+                }
+                .face-droite {
+                    transform: rotateY(90deg) translateZ(50px);
+                }
+                .face-gauche {
+                    transform: rotateY(-90deg) translateZ(50px);
+                }
+                .face-haut {
+                    transform: rotateX(90deg) translateZ(50px);
+                }
+                .face-bas {
+                    transform: rotateX(-90deg) translateZ(50px);
+                }
+
+    </style>
+</head>
+<body>
+    <section>
+        <div class="pattern">
+            <div class="face face1"></div>
+            <div class="face face2"></div>
+        </div>
+        <div class="cube">
+            <div class="faceCube face-avant"></div>
+            <div class="faceCube face-bas"></div>
+            <div class="faceCube face-droite"></div>
+            <div class="faceCube face-gauche"></div>
+            <div class="faceCube face-haut"></div>
+            <div class="faceCube face-arriere"></div>
+        </div>
+   
+    </section>
+</body>
+</html>
